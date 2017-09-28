@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# File needs to be called /hooks/build relative to the Dockerfile.
+# $IMAGE_NAME var is injected into the build so the tag is correct.
+
+echo "Build hook running"
+docker build --build-arg KM_VERSION=`git describe --tags` \
+             -t $IMAGE_NAME .
