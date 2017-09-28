@@ -12,6 +12,7 @@ RUN mkdir -p /tmp && \
     sbt clean dist && \
     unzip  -d / ./target/universal/kafka-manager-${KM_VERSION}.zip && \
     rm -fr /tmp/${KM_VERSION} /tmp/kafka-manager-${KM_VERSION} && \
+    mkdir /conf && \
     cp /kafka-manager-${KM_VERSION}/conf/application.conf /conf/application.conf
 
 WORKDIR /kafka-manager-${KM_VERSION}
